@@ -48,9 +48,10 @@ npm run format      # Format code with Prettier
 
 Runs automatically before every commit:
 
-- ESLint checks staged files
-- Prettier formats staged files
-- Fast feedback loop
+- Prettier AUTO-FORMATS staged files
+- ESLint AUTO-FIXES issues in staged files
+- Changes are automatically re-staged
+- Fast feedback loop with automatic fixes
 
 ### Pre-Push Hook
 

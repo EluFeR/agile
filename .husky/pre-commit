@@ -4,8 +4,13 @@
 echo "🔍 Running pre-commit checks..."
 echo ""
 
-# Run lint-staged (ESLint + Prettier on staged files)
+echo "💅 Formatting code with Prettier..."
+echo "🔧 Fixing ESLint issues..."
+echo ""
+
+# Run lint-staged (Auto-formats with Prettier + Auto-fixes ESLint issues)
 npx lint-staged
 
 echo ""
-echo "✅ Pre-commit checks passed!"
+echo "✅ Code formatted and linted successfully!"
+echo "✅ Changes have been auto-fixed and re-staged!"
