@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/health', (req, res) => {
-  res.json({ status: 'ahsh', timestamp: new Date().toISOString() });
+  res.json({ status: 'healthy', timestamp: new Date().toISOString() });
 });
 
 app.get('/greet/:name?', (req, res) => {
@@ -27,6 +27,13 @@ app.get('/greet/:name?', (req, res) => {
   });
 });
 
+app.get('/demo', (req, res) => {
+  res.json({
+    message: 'DevOps CI/CD Demo Endpoint',
+    features: ['Auto-format', 'Auto-test', 'Auto-deploy'],
+    status: 'success',
+  });
+});
 app.post('/calculate', (req, res) => {
   const { a, b, operation } = req.body;
   let result;
