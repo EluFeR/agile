@@ -1,28 +1,32 @@
+# DevOps CI/CD Demo Examples
+
+This document contains practical examples for demonstrating CI/CD pipeline features.
+
 ---
 
 ## 📍 Demo 1: Auto-Format Success (1 min)
 
-**Step 1: Add messy code**
+### Step 1: Add messy code
 
 ```js
-const x=1;const y=2;const z=x+y;console.log(z)
+const x = 1const y = 2const z = x + yconsole.log(z)
 ```
 
-**Step 2: Commit changes**
+### Step 2: Commit changes
 
 ```bash
 git add app.js
 git commit -m "feat: add calculation"
 ```
 
-✅ **Expected Result:**
+✅ **Expected Result:**  
 CI automatically formats the code (Prettier/ESLint) and passes.
 
 ---
 
 ## 📍 Demo 2: Catch an Error (1.5 min)
 
-**Step 1: Add broken code**
+### Step 1: Add broken code
 
 ```js
 function broken() {
@@ -30,27 +34,27 @@ function broken() {
 }
 ```
 
-**Step 2: Commit changes**
+<!-- ### Step 2: Commit changes -->
 
 ```bash
 git add app.js
 git commit -m "feat: add broken function"
 ```
 
-❌ **Expected Result:**
+❌ **Expected Result:**  
 CI fails due to syntax error → prevents bad code from merging.
 
 ---
 
 ## 📍 Demo 3: Break a Test (1 min)
 
-**Step 1: Introduce a breaking change**
+### Step 1: Introduce a breaking change
 
 ```js
 'broken';
 ```
 
-**Step 2: Commit & push**
+### Step 2: Commit & push
 
 ```bash
 git add app.js
@@ -58,14 +62,14 @@ git commit -m "fix: update status"
 git push origin main
 ```
 
-❌ **Expected Result:**
+❌ **Expected Result:**  
 Tests fail → deployment is blocked.
 
 ---
 
 ## 📍 Working Example (Passing Code)
 
-**API Endpoint**
+### API Endpoint
 
 ```js
 app.get('/demo', (req, res) => {
@@ -77,7 +81,7 @@ app.get('/demo', (req, res) => {
 });
 ```
 
-**Test Case**
+### Test Case
 
 ```js
 test('GET /demo should return demo information', async () => {
