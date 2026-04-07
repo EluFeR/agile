@@ -2,7 +2,6 @@ const request = require('supertest');
 const app = require('./app');
 
 describe('DevOps Demo API Tests', () => {
-  
   test('GET / should return welcome message', async () => {
     const response = await request(app).get('/');
     expect(response.status).toBe(200);
@@ -14,6 +13,20 @@ describe('DevOps Demo API Tests', () => {
     const response = await request(app).get('/health');
     expect(response.status).toBe(200);
     expect(response.body.status).toBe('healthy');
+    expect(response.body.timestamp).toBeDefined();
+  });
+
+  test('GET /greet should greet Guest by default', async () => {
+    const response = await request(app).get('/greet');
+    expect(response.status).toBe(200);
+    expect(response.body.message).toBe('Hello, Guest!');
+    expect(response.body.greeting).toBe('Welcome to our DevOps demo');
+  });
+
+  test('GET /greet/:name should greet with provided name', async () => {
+    const response = await request(app).get('/greet/John');
+    expect(response.status).toBe(200);
+    expect(response.body.message).toBe('Hello, John!');
     expect(response.body.timestamp).toBeDefined();
   });
 

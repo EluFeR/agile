@@ -6,16 +6,41 @@
   "scripts": {
     "start": "node app.js",
     "test": "jest",
-    "build": "echo 'Building application...' && mkdir -p dist && cp app.js dist/"
+    "test:coverage": "jest --coverage",
+    "build": "echo 'Building application...' && mkdir -p dist && cp app.js dist/",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"**/*.{js,json,md}\"",
+    "format:check": "prettier --check \"**/*.{js,json,md}\"",
+    "prepare": "husky install"
   },
-  "keywords": ["devops", "cicd", "github-actions"],
+  "keywords": [
+    "devops",
+    "cicd",
+    "github-actions"
+  ],
   "author": "SEng5304 Group",
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.2"
   },
   "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jest": "^27.9.0",
+    "husky": "^8.0.3",
     "jest": "^29.5.0",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.4",
     "supertest": "^6.3.3"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   }
 }

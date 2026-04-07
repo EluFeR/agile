@@ -10,12 +10,21 @@ app.get('/', (req, res) => {
   res.json({
     message: 'Welcome to DevOps CI/CD Demo!',
     status: 'running',
-    version: '1.0.0'
+    version: '1.0.0',
   });
 });
 
 app.get('/health', (req, res) => {
   res.json({ status: 'healthy', timestamp: new Date().toISOString() });
+});
+
+app.get('/greet/:name?', (req, res) => {
+  const name = req.params.name || 'Guest';
+  res.json({
+    message: `Hello, ${name}!`,
+    greeting: 'Welcome to our DevOps demo',
+    timestamp: new Date().toISOString(),
+  });
 });
 
 app.post('/calculate', (req, res) => {

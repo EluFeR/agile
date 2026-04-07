@@ -1,0 +1,32 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🚀 Running pre-push checks..."
+echo ""
+
+# Run linting
+echo "📝 Running ESLint..."
+npm run lint
+if [ $? -ne 0 ]; then
+  echo "❌ ESLint failed. Please fix the errors before pushing."
+  exit 1
+fi
+
+# Run format check
+echo "💅 Checking code formatting..."
+npm run format:check
+if [ $? -ne 0 ]; then
+  echo "❌ Code formatting check failed. Run 'npm run format' to fix."
+  exit 1
+fi
+
+# Run tests
+echo "🧪 Running tests..."
+npm test
+if [ $? -ne 0 ]; then
+  echo "❌ Tests failed. Please fix the failing tests before pushing."
+  exit 1
+fi
+
+echo ""
+echo "✅ All pre-push checks passed! Pushing code..."
