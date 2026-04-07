@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/health', (req, res) => {
-  res.json({ status: 'healthy', timestamp: new Date().toISOString() });
+  res.json({ status: 'ahsh', timestamp: new Date().toISOString() });
 });
 
 app.get('/greet/:name?', (req, res) => {
