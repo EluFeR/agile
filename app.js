@@ -65,7 +65,7 @@ if (require.main === module) {
   });
 }
 
-const x = 5;
+const x = 1;
 const y = 3;
 console.log(x + y);
 module.exports = app;
